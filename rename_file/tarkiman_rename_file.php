@@ -1,6 +1,6 @@
 <?php
 
-$src = "D:\\IMAGES";
+$src = "E:\\TMP";
 
 function recurse_rename($src)
 {
@@ -34,7 +34,8 @@ function recurse_rename($src)
 
                     $newFileName = date("Y-m-d_His", filemtime($_file)) . $ext;
                     if (file_exists($src . '/' . $newFileName)) {
-                        $newFileName = date("Y-m-d_His", filemtime($_file)) . '_0' . $ext;
+                        // $newFileName = date("Y-m-d_His", filemtime($_file)) . '_0' . $ext;
+                        rename($_file, "E:\\DUPLICATE\\" . date("Y-m-d_His", filemtime($_file)) . $ext);
                     } else {
                         $newFileName = date("Y-m-d_His", filemtime($_file)) . $ext;
                     }
