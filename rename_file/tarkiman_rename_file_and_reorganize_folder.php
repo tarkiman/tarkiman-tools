@@ -4,7 +4,7 @@ $src = "E:\\SOURCES";
 
 function recurse_rename($src)
 {
-    $destination_src = "E:\DESTINATION";
+    $destination_src = "E:\\DESTINATION";
 
     $dir = opendir($src);
 
