@@ -1,17 +1,17 @@
 <?php
 
-$src = "E:\\SOURCES";
+$src = "D:\Recycle Bin\Downloads";
 
 function recurse_rename($src)
 {
-    $destination_src = "E:\\DESTINATION";
+    $destination_src = "D:\\DESTINATION";
 
     $dir = opendir($src);
 
     while (false !== ($file = readdir($dir))) {
         if (($file != '.') && ($file != '..')) {
             if (is_dir($src . '/' . $file)) {
-                var_dump("SUB FOLDER >>> " . $src . '/' . $file);
+                // var_dump("SUB FOLDER >>> " . $src . '/' . $file);
                 recurse_rename($src . '/' . $file);
             } else {
 
@@ -40,7 +40,7 @@ function recurse_rename($src)
                     $newFileName = date("Y-m-d_His", filemtime($_file)) . $ext;
                     if (file_exists($destination_src . "/" . date("Y", filemtime($_file)) . '/' . $newFileName)) {
                         // $newFileName = date("Y-m-d_His", filemtime($_file)) . '_0' . $ext;
-                        rename($_file, "E:\\DUPLICATE\\" . date("Y-m-d_His", filemtime($_file)) . $ext);
+                        rename($_file, "D:\\DUPLICATE\\" . date("Y-m-d_His", filemtime($_file)) . $ext);
                     } else {
                         $newFileName = date("Y-m-d_His", filemtime($_file)) . $ext;
                     }
@@ -48,7 +48,7 @@ function recurse_rename($src)
                     // var_dump($_file);
                     // var_dump($destination_src . "/" . date("Y", filemtime($_file)) . '/' . $newFileName);
 
-                    var_dump(" FROM : " . $_file . $ext . " >>> RENAMED : " . $newFileName . " >>> MOVED TO : " . $destination_src . "/" . date("Y", filemtime($_file)) . '/' .  $newFileName);
+                    var_dump(" FROM : " . $_file . " >>> RENAMED : " . $newFileName . " >>> MOVED TO : " . $destination_src . "/" . date("Y", filemtime($_file)) . '/' .  $newFileName);
 
                     rename($_file, $destination_src . "/" . date("Y", filemtime($_file)) . '/' .  $newFileName);
                 }
